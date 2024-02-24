@@ -1,0 +1,55 @@
+To develop a Node.js application, we need Node.js to install on our computer. To simplify this process, we can use the nodemon package globally.
+
+For a Node.JS application "package.json" keeps the whole configuration, and to create that file we'll run the command "npm init".
+For a Node.js application, "package.json" contains the entire configuration. To create this file, we'll execute 
+the command:
+"npm init" / "npm init -y"
+Later, all JavaScript modules or packages that we'll be used in project, will be added to the "package.json" file.
+
+*) In Server side programming language we start our programming by creating a Server.
+
+*) http://test.com  or https://test.com
+=> This follows a "stateless protocol," which means that as a user, I request some data from the server, and then the server responds
+and breaks the connection. If this doesn't happen, meaning if the server doesn't break the connection, then there will be problems
+like server being busy, etc.
+
+And there is stateful protocol as well, that doesn't break the connection between server and client.
+Like:~
+1.) ws -> Web Socket.
+2.) RTMPS -> Video playing.
+
+In react we import a module/package by using "import" keyword but in Node.JS we use "require" keyword.
+
+*) In Node.JS, to create a server, we need "http" module.http module by default exsit in Node.
+
+*) To access Server's code we need a domain name.Like test.com .
+
+*) In our local PC, we use "nodemon" to recompile our changes in our code. Now, when we deploy our software on the server,
+we will use "pm2" to fulfill the same purpose.
+
+*) Status code: status code is used to inform browser if the request's status like Status codes are like signals between
+your browser and a website's server, telling you whether your request was successful, failed because of something you did,
+or failed because of a problem on the website's end.
+
+Some mostly used satus code and their use case:
+    200: OK - Everything went fine.
+    404: Not Found - The requested resource could not be found.
+    401: Unauthorized - Authentication is required to access the resource.
+    403: Forbidden - The client does not have permission to access the resource.
+    405: Not allowed - Request method isn't allowed.
+    409: Duplicate - Like loggin with same email
+    500: Internal Server Error - Something went wrong on the server's end.
+
+*) Monolethic -> Directly serving to UI/UX
+**) Microservices-> Only exchaning data.(OTP, Email, sms). -> We'll learn this one.
+
+*) When working with Microservices, we use a template engine to write HTML code. A template engine is nothing but a npm package.
+There are so many template engine available like: pug, ejs, mustach.
+
+*) There are some request method, that can be identified by the below code:~
+    const requestMethod = req.method;
+    console.log(requestMethod);
+
+*) To follow a stateless protocol, we need to end the connection between the client and server after we respond. The code below does just that: 
+    response.end("Your response") ;
+
