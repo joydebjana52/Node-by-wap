@@ -53,3 +53,16 @@ There are so many template engine available like: pug, ejs, mustach.
 *) To follow a stateless protocol, we need to end the connection between the client and server after we respond. The code below does just that: 
     response.end("Your response") ;
 
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+By default, JavaScript is a synchronous language. This means it runs line by line. For instance, if the code at line number 3 takes a lot of time
+to execute, then the code at line number 4 will be waiting.
+To avoid this problem, there are some function(Promise, setTimeout, setInterval) in JavaScript, and that's called async programming.
+
+    console.log("First line");
+    console.log("Second line");
+    setTimeout(()=> {
+        console.log("Third line")
+    }, 3000);
+    console.log("Fourth line");
+
