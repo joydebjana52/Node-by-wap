@@ -66,3 +66,52 @@ To avoid this problem, there are some function(Promise, setTimeout, setInterval)
     }, 3000);
     console.log("Fourth line");
 
+
+*) There are several request methods such as GET, POST, PUT, DELETE, etc., and each of them has its own way
+to send data during the request. Now, let's learn how to send data for a GET request.
+
+a.) For GET request we use query param, that is written with request url, we can differenciate two query by "&" symble, which looks like:
+=>  localhost:8000?username=janajoydeb&email=joydebjana@gmail.com
+we can get all those data such as username, email from "req" parameter from server, using "req.url" .
+But we'll get data that looks like: ?username=janajoydeb&email=joydebjana@gmail.com .
+To Handel it we'll use "url" module. require the "url" module and use "parse" method to get data efficiently.
+
+=>  const url = require("url");
+    url.parse(req.url, true);
+
+*) Suppose, we've a Promise that returns resolve or reject, now it's result is stored in a variable.To handel that we'll use
+then() and catch().
+=> to get result of resolve we use then() and to get result of reject we use catch().
+
+**) Server crash -> Complilation stopped  | Database crash -> Data deleted.
+
+*) In Controller/Controller folder we keep functionality files.In main file we keep only routing related codes.
+
+*) In Node.js, to connect with MongoDB, there is an npm package available for that, and we'll install it. In a real-life project, we typically
+establish the connection with the database only once. However, since we are learning, for each method, we'll connect with the database.
+
+*) To set response data types: res.setHeaders('Content-Type', 'application/json');
+The above code will be converted into JSON format while it'll be recevied by Browser/front-end.
+
+*) package / module / dependency / library they all four is similar.
+=> They all can be used by two way.
+a.) CommonJS => Using "require()" method.
+b.) ES6 => using "import" keyword.
+
+*) To use a module (http) check the below two lines of code:~
+a.)  const http = require("http");   -> CommonJS
+b.)  import http from "http;         -> ES6
+
+*) In Node we can use MongoDB by two way:~
+a.) MongoDB -> Code MongoDB
+b.) Mongoose-> MongoDB Framework -> It gives type safety. In Mongoose we can define a schema, and in schema we define which field will contain which type of data.
+A schema defines which datafields will be present for a collection, that's why unwanted data-fields can't be added by mistake, that gives security.
+
+For better understanding, schema looks like:
+
+{
+    id: number,
+    name: string,
+    cgpa: number,
+    bloodGroup: string
+}
