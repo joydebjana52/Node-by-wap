@@ -1,6 +1,5 @@
 To develop a Node.js application, we need Node.js to install on our computer. To simplify this process, we can use the nodemon package globally.
 
-For a Node.JS application "package.json" keeps the whole configuration, and to create that file we'll run the command "npm init".
 For a Node.js application, "package.json" contains the entire configuration. To create this file, we'll execute 
 the command:
 "npm init" / "npm init -y"
@@ -50,7 +49,7 @@ There are so many template engine available like: pug, ejs, mustach.
     const requestMethod = req.method;
     console.log(requestMethod);
 
-*) To follow a stateless protocol, we need to end the connection between the client and server after we respond. The code below does just that: 
+*) To follow a stateless protocol, we need to end the connection between the client and server after server responds. The code below does just that: 
     response.end("Your response") ;
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -93,6 +92,8 @@ establish the connection with the database only once. However, since we are lear
 *) To set response data types: res.setHeaders('Content-Type', 'application/json');
 The above code will be converted into JSON format while it'll be recevied by Browser/front-end.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 *) package / module / dependency / library they all four is similar.
 => They all can be used by two way.
 a.) CommonJS => Using "require()" method.
@@ -103,7 +104,7 @@ a.)  const http = require("http");   -> CommonJS
 b.)  import http from "http;         -> ES6
 
 *) In Node we can use MongoDB by two way:~
-a.) MongoDB -> Code MongoDB
+a.) MongoDB -> Core MongoDB
 b.) Mongoose-> MongoDB Framework -> It gives type safety. In Mongoose we can define a schema, and in schema we define which field will contain which type of data.
 A schema defines which datafields will be present for a collection, that's why unwanted data-fields can't be added by mistake, that gives security.
 
@@ -115,3 +116,39 @@ For better understanding, schema looks like:
     cgpa: number,
     bloodGroup: string
 }
+
+
+We've learned MongoDB Core, which will help us learn Mongoose. We've noticed that to perform a simple operation, we've had to suffer a lot.
+This means for a small operation, we have to write `.then().catch()` again and again, which is also known as callback hell. So, now we'll learn Mongoose.
+
+1.) At first we'll install "mongoose" module by the command: "npm i mongoose" as it's not inbuilt module.
+2.) create "schema"/"model" for the documents. schema is also known as database blueprint.
+3.) We define schema in "schema" folder, in general.
+Syntax:
+
+    const mongoose = require('mongoose');
+
+    const productSchema = mongoose.Schema({
+        title: String,
+        description: String,
+        price: number
+    });
+
+    const Product = mongoose.model('Product', productSchema);   // "Product" defines the collection name in database.means for which collection'll have the schema.
+    module.exports = Product;
+
+
+*) There are two types of API available,
+rest API -> JSON format response
+soap API -> XML format response( Now a days it's not created).
+
+*) Always remember, two things while responsing while working on Rest APIs:
+a.) status code.
+b.) response in JSON format.
+
+*) Both "PUT" and "PATCH" request method is to update data.
+
+*) rest API :
+1.) Decision according to http methods.
+2.) Response in JSON format.
+3.) Relevant status code.
