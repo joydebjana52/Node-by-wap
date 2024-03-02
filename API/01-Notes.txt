@@ -39,3 +39,79 @@ To overcome this, we use Node.js frameworks like Express, Fastify, NestJS, Koa. 
     1.) Content-Type should be 'application/json' (response should be in JSON format).
     2.) Relevant status code.
     3.) Headers.
+
+*) We'll use Express to build Rest APIs in convenient way.
+
+Basic syntax of Express.JS:~
+    const express = require('express');
+    const server = express();
+    server.listen(6000);
+
+    server.get('/path', (req, res) => {
+        //some code
+        res.send();
+    });
+
+
+*) In the above code, '/path' is known as an 'endpoint', meaning that it follows the domain (when the app is hosted) or 
+the port (when the app runs on a local machine). What we write after the domain or port is considered the endpoint.
+
+*) In a REST API application, the 'endpoint' is very important. By reading the endpoint, we can determine the functionalities it provides.
+
+*) For Rest API application, in which file/package we define functionalities, known as "Controller". For that we keep seprate folder Generally,
+named "controller" and inside that folder, we write our logic files.
+
+*) Code:~
+
+    const express = require('express');
+    const server = express();
+    const {
+        fetchTickets,
+        createTicket,
+        updateTicket,
+        deleteTicket
+    } = require('./controller/ticket.controller');
+
+    server.listen(9000);
+
+    server.get('/ticket', fetchTickets);
+    server.post('/ticket', createTicket);
+    server.put('/ticket', updateTicket);
+    server.delete('/ticket', deleteTicket);
+
+*) In the above code, the functions fetchTickets, createTicket, updateTicket, and deleteTicket all automatically receive the req and res parameters.
+
+*) In the entry file (index.js), we first connect to the database(Very first line), which is a good practice.
+This ensures that if the database connection is established properly, users can interact with the database.
+
+*) For a schema(check the below one):~
+
+    const mongoose = require('mongoose');
+
+    const ticketSchema = new mongoose.Schema({
+        title: {
+            type: String,
+            required: true
+        },
+        description: {
+            type: String,
+            required: true
+        },
+        status: {
+            type: String,
+            default: 'pending'
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now
+        }
+    });
+
+    const ticket = mongoose.model('Ticket', ticketSchema); //! "Ticket" is colleciton name
+    module.exports = ticket;
+
+a.) "default" is used to set a default value, as its name implies.
+b.) "required" indicates whether that field is compulsory or optional.
+c.) "type" specifies the data type that the field should contain.
+
+
