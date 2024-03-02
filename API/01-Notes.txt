@@ -1,0 +1,41 @@
+Whatever functionalities a server has can be handled in two ways:
+a.) User Interface -> This is also known as monolithic.
+    => After completing our tasks(like performing CRUD operations), we'll send the UI's code from the back-end, such as "<h1>email</h1>".
+b.) Data.
+    => Do not send the UI's code, only send data. This data will be displayed by front-end developers. This approach belongs to microservices.
+    In microservices architecture, only data is exchanged. There are many ways to write code in microservices architecture, such as:~
+    1.) Rest API
+    2.) Indepedent service(pure microservice architecture is something, which has different different service like login,signup hoisted on
+    different different servers).
+
+
+a.) For Rest API, we'll create a single app(assume a node application) and defined everything in it.
+b.) But in microservice architecture, we should keep all services(like login, signup) Indepedent.
+==> In microservice architecture, we should keep all services (like login, signup) independent. For example,
+suppose we've written programs for user data, product management, and password recovery differently and hosted them on
+different servers. If they're still able to communicate(interconnected), then this will be called independent services or microservices.
+
+**) 
+a.) Microservices are better than REST API applications when it comes to server crashes. In microservices, there are many servers, if any one fails,
+it will not affect the other servers. However, in a REST API, as we use a single server, then the entire REST API application will stop working.
+b.) REST API is good for building small to medium applications, but microservices are better suited for building large applications.
+
+*) Rate limiting in REST APIs refers to a technique used to control the number of requests that a client can make to an API within a given period of time.
+It helps to prevent abuse or overuse of the API, ensuring fair usage for all consumers and maintaining the stability and performance of the API server.
+
+When rate limiting is implemented, the API server will track the number of requests made by each client or API key within a certain timeframe, such as
+per second, minute, or hour. If a client exceeds the predefined limit, the server may respond with an error code (e.g., 429 Too Many Requests) indicating
+that the client has reached its rate limit. This prevents the server from being overwhelmed by too many requests from a single client.
+
+Rate limiting can be applied globally across all endpoints of an API or selectively on specific endpoints based on different criteria such as user roles,
+API key, IP address, or subscription plan. It is an important mechanism for managing API usage, preventing abuse, and ensuring fair access for all consumers.
+
+*) Generally, we don't develop REST APIs using core Node.js because it's not so convenient due to callback hell.
+To overcome this, we use Node.js frameworks like Express, Fastify, NestJS, Koa. We'll learn Express.
+
+*) In Rest API we don't send code for UIs, only send data in the form of Array of Object or Object.
+*) In a REST API, we don't send code for UIs, we only send data in the form of arrays of objects or objects.
+*) Three points to keep in mind, while developing a Rest API:~
+    1.) Content-Type should be 'application/json' (response should be in JSON format).
+    2.) Relevant status code.
+    3.) Headers.
